@@ -4,7 +4,7 @@ import tw, { styled } from 'twin.macro'
 import React from 'react'
 
 const Nav = styled.nav`
-  ${tw`container flex items-center justify-between p-4 max-w-3xl mx-auto sticky top-0 bg-white`}
+  ${tw`container flex items-center justify-between p-4 max-w-3xl! mx-auto sticky top-0 bg-white`}
 `
 
 const LinkWrapper = styled.a`

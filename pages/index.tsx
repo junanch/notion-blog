@@ -4,7 +4,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PostCard from '../components/PostCard'
 
-const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '7021cba3b8a04865850473d4037762ad'
+// const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '7021cba3b8a04865850473d4037762ad'
+const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '661514f8aa7a48ae9f554186a440ff99'
 
 export interface Author {
   id: string
@@ -39,18 +40,22 @@ export const getStaticProps = async () => {
 }
 
 const PostWrapper = styled.section`
-  ${tw`grid gap-6 mx-auto divide-gray-100`}
+  ${tw`grid gap-4 mx-auto divide-gray-100`}
+`
+
+const Main = styled.main`
+  ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl! my-10`}
 `
 
 const HomePages = ({ posts }: { posts: Post[] }) => {
   return (
-    <div tw="relative flex flex-col min-h-screen bg-white">
+    <div className="relative flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main tw="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-2xl my-16">
+      <Main>
         <PostWrapper>
           {posts.map(post => post.published && <PostCard key={post.id} post={post} />)}
         </PostWrapper>
-      </main>
+      </Main>
       <Footer />
     </div>
   )

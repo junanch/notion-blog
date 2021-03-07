@@ -8,11 +8,10 @@ const PostItem = styled.div`
   ${tw`flex flex-col flex-1 p-4 cursor-pointer rounded-lg hover:bg-gray-50 `}
 `
 
-const PostCard = ({ post }: { post: Post }) => {
-  console.log(post)
+const PostCard = ({ post, key }: { post: Post, key: string }) => {
   return (
-    <PostItem>
-      <Link key={post.id} href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
+    <PostItem key={key}>
+      <Link href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
         <a className="p-4 hover:bg-gray-50">
           <div className="rounded-xl mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
             <div className="flex items-center space-x-1">
@@ -24,12 +23,6 @@ const PostCard = ({ post }: { post: Post }) => {
           <div className="text-sm text-gray-400 flex items-center space-x-1">
             <CalendarOutline size={16} />
             <span>{new Date(post.date).toLocaleDateString()}</span>
-            {post.author.map(author => (
-              <div key={author.id} className="flex items-center space-x-1">
-                <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6" />
-                <span>{author.fullName}</span>
-              </div>
-            ))}
           </div>
         </a>
       </Link>

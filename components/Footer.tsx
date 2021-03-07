@@ -1,10 +1,10 @@
 import tw, { styled } from 'twin.macro'
 
 const Foot = styled.footer`
-  ${tw`w-full p-4 text-center text-gray-400 bg-gray-800`}
+  ${tw`w-full p-4 text-center text-gray-400 border-t`}
 `
 const Link = styled.a`
-  ${tw`hover:text-white`}
+  ${tw`hover:text-gray-500`}
 `
 
 const Footer = () => {

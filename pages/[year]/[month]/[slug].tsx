@@ -30,16 +30,15 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { 
 
   return (
     <div className="min-h-screen flex flex-col">
+      <nav className="container mt-4 inline-block py-2 sticky top-0 bg-white max-w-3xl! mx-auto">
+        <Link href="/">
+          <a className="flex -ml-2 p-2 rounded lg:hover:bg-gray-100">
+            <HomeOutline className="mr-4" />
+            <span>Home</span>
+          </a>
+        </Link>
+      </nav>
       <div className="container mx-auto px-6 justify-center flex-grow max-w-4xl">
-        <nav className="mt-4 inline-block">
-          <Link href="/">
-            <a className="flex -ml-2 p-2 rounded lg:hover:bg-gray-100">
-              <HomeOutline className="mr-4" />
-              <span>Home</span>
-            </a>
-          </Link>
-        </nav>
-
         <div className="my-16 mx-auto max-w-3xl">
           <div className="mb-12 text-center">
             <div className="text-3xl font-bold mb-3">{post.name}</div>
@@ -49,9 +48,9 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { 
                 <span>{new Date(post.date).toLocaleDateString()} · </span>
               </div>
               {post.author.map(author => (
-                <div key={author.id} className="flex items-center space-x-1">
-                  <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6" />
-                  <span>{author.fullName}</span>
+                <div key={author.id} className="flex items-center space-x-1 flex-shrink-0">
+                  <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
+                  <span className="hidden md:block">{author.fullName}</span>
                 </div>
               ))}
             </div>
