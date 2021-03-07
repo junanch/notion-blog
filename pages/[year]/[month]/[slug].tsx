@@ -30,7 +30,7 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { 
 
   return (
     <div className="min-h-screen flex flex-col">
-      <nav className="container mt-4 inline-block py-2 sticky top-0 bg-white max-w-3xl! mx-auto">
+      <nav className="container mt-4 inline-block p-4 sticky top-0 bg-white max-w-3xl! mx-auto">
         <Link href="/">
           <a className="flex -ml-2 p-2 rounded lg:hover:bg-gray-100">
             <HomeOutline className="mr-4" />
