@@ -19,7 +19,7 @@ const Footer = () => {
           <Link href="https://notion.so">Notion</Link>,{' '}
           <Link href="https://www.typescriptlang.org/">TypeScript.</Link>
         </div>
-        <div>Juan Chen © 2020-{currentYear}</div>
+        <div>Spencer © 2020-{currentYear}</div>
       </div>
     </Foot>
   )
