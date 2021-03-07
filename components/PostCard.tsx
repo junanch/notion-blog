@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro'
 import Link from 'next/link'
 import { Post } from '../pages/index'
-import { formatSlug } from '../pages/util'
+import { formatSlug } from '../utils/util'
 import { CalendarOutline,  TagOutline } from 'heroicons-react'
 
 const PostItem = styled.div`
