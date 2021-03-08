@@ -16,10 +16,9 @@ const Footer = () => {
         <div>
           Powered by <Link href="https://nextjs.org/">Next.js</Link>,{' '}
           <Link href="https://tailwindcss.com/">Tailwind CSS</Link>,{' '}
-          <Link href="https://notion.so">Notion</Link>,{' '}
-          <Link href="https://www.typescriptlang.org/">TypeScript.</Link>
+          <Link href="https://notion.so">Notion</Link>.{' '}
         </div>
-        <div>Spencer © 2020-{currentYear}</div>
+        <div>Juan © 2020-{currentYear}</div>
       </div>
     </Foot>
   )
