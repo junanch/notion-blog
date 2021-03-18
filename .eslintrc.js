@@ -15,6 +15,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended', // 使用推荐的React代码检测规范
+    "plugin:@typescript-eslint/recommended",
     'standard',
     'plugin:prettier/recommended',
   ],

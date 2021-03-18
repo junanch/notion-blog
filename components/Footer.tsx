@@ -18,7 +18,7 @@ const Footer = () => {
           <Link href="https://tailwindcss.com/">Tailwind CSS</Link>,{' '}
           <Link href="https://notion.so">Notion</Link>.{' '}
         </div>
-        <div>Juan © 2020-{currentYear}</div>
+        <div>Junan © 2020-{currentYear}</div>
       </div>
     </Foot>
   )

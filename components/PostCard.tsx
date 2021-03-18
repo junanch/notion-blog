@@ -8,9 +8,9 @@ const PostItem = styled.div`
   ${tw`flex flex-col flex-1 p-4 cursor-pointer rounded-lg hover:bg-gray-50 `}
 `
 
-const PostCard = ({ post, key }: { post: Post, key: string }) => {
+const PostCard = ({ post }: { post: Post, key?: string }) => {
   return (
-    <PostItem key={key}>
+    <PostItem>
       <Link href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
         <a className="p-4 hover:bg-gray-50">
           <div className="rounded-xl mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">

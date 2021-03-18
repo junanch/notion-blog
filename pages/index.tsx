@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PostCard from '../components/PostCard'
 
-// const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '7021cba3b8a04865850473d4037762ad'
 const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '661514f8aa7a48ae9f554186a440ff99'
 
 export interface Author {

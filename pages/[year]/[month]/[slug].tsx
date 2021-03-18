@@ -15,17 +15,25 @@ export const getStaticProps = async ({ params: { slug } }: { params: { slug: str
   // Find the current blogpost by slug
   const post = posts.find(t => t.slug === slug)
 
-  const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post!.id}`).then(res => res.json())
+  const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post!.id}`).then(res =>
+    res.json(),
+  )
 
   return {
     props: {
       blocks,
-      post
-    }
+      post,
+    },
   }
 }
 
-const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { post: Post; blocks: BlockMapType }) => {
+const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({
+  post,
+  blocks,
+}: {
+  post: Post
+  blocks: BlockMapType
+}) => {
   if (!post) return null
 
   return (
@@ -49,7 +57,11 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { 
               </div>
               {post.author.map(author => (
                 <div key={author.id} className="flex items-center space-x-1 flex-shrink-0">
-                  <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
+                  <img
+                    src={author.profilePhoto}
+                    alt="profile photo"
+                    className="w-6 h-6 rounded-full"
+                  />
                   <span className="hidden md:block">{author.fullName}</span>
                 </div>
               ))}
@@ -68,7 +80,7 @@ export const getStaticPaths = async () => {
   const table = await getAllPosts()
   return {
     paths: table.map(row => formatSlug(row.date, row.slug)),
-    fallback: true
+    fallback: true,
   }
 }
 
