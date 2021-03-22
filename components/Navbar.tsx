@@ -18,10 +18,10 @@ const Image = styled.div`
 const menu = [
   { title: 'Blog', href: '/' },
   { title: 'Product', href: '/' },
-  { title: 'About', href: '/' },
+  { title: 'About', href: '/' }
 ]
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <Nav>
       <NextLink href="/">

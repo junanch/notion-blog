@@ -27,14 +27,14 @@ export interface Post {
 
 export const getAllPosts = async (): Promise<Post[]> => {
   return await fetch(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res =>
-    res.json(),
+    res.json()
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (): Promise<{ props: { posts: Post[] } }> => {
   const posts = await getAllPosts()
   return {
-    props: { posts },
+    props: { posts }
   }
 }
 
@@ -46,7 +46,7 @@ const Main = styled.main`
   ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl! my-10`}
 `
 
-const HomePages = ({ posts }: { posts: Post[] }) => {
+const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) => {
   return (
     <div className="relative flex flex-col min-h-screen bg-white">
       <Navbar />

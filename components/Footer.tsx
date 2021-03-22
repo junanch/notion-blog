@@ -1,3 +1,4 @@
+import React from 'react'
 import tw, { styled } from 'twin.macro'
 
 const Foot = styled.footer`
@@ -7,7 +8,7 @@ const Link = styled.a`
   ${tw`hover:text-gray-500`}
 `
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const currentYear: number = new Date().getFullYear()
 
   return (

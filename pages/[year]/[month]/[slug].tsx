@@ -8,28 +8,32 @@ import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
 import { formatSlug } from '../../../utils/util'
 
-export const getStaticProps = async ({ params: { slug } }: { params: { slug: string } }) => {
+export const getStaticProps = async ({
+  params: { slug }
+}: {
+  params: { slug: string }
+}): Promise<{ props: { post: Post; blocks: Promise<Response> } }> => {
   // Get all posts again
   const posts = await getAllPosts()
 
   // Find the current blogpost by slug
   const post = posts.find(t => t.slug === slug)
 
-  const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post!.id}`).then(res =>
-    res.json(),
-  )
+  const blocks: Promise<Response> = await fetch(
+    `https://notion-api.splitbee.io/v1/page/${post.id}`
+  ).then(res => res.json())
 
   return {
     props: {
       blocks,
-      post,
-    },
+      post
+    }
   }
 }
 
 const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({
   post,
-  blocks,
+  blocks
 }: {
   post: Post
   blocks: BlockMapType
@@ -76,11 +80,11 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({
   )
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async (): Promise<{ paths: string[]; fallback: boolean }> => {
   const table = await getAllPosts()
   return {
     paths: table.map(row => formatSlug(row.date, row.slug)),
-    fallback: true,
+    fallback: true
   }
 }
 
