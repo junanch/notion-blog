@@ -2,7 +2,7 @@ import React from 'react'
 import tw, { styled } from 'twin.macro'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import PostCard from '../components/PostCard'
+import PostCard, { PostItem } from '../components/PostCard'
 
 const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '661514f8aa7a48ae9f554186a440ff99'
 
@@ -52,7 +52,14 @@ const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) =>
       <Navbar />
       <Main>
         <PostWrapper>
-          {posts.map(post => post.published && <PostCard key={post.id} post={post} />)}
+          {posts.map(
+            post =>
+              post.published && (
+                <PostItem key={post.id}>
+                  <PostCard post={post} />
+                </PostItem>
+              )
+          )}
         </PostWrapper>
       </Main>
       <Footer />
