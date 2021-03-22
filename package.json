@@ -7,8 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --config .prettierrc.js --check --write '{pages,components,utils}/**/*.{js,jsx,ts,tsx}'",
-    "eslint": "eslint --fix '{pages,components,utils}/**/*.{js,jsx,ts,tsx}'"
+    "prettier": "prettier --check --write .",
+    "eslint": "eslint --fix ."
   },
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",

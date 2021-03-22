@@ -1,3 +1,4 @@
+import React from 'react'
 import 'twin.macro'
 import styledImport from '@emotion/styled'
 import { css as cssImport } from '@emotion/react'
@@ -15,7 +16,7 @@ declare module 'twin.macro' {
 // The 'as' prop on styled components
 declare global {
   namespace JSX {
-    interface IntrinsicAttributes<T> extends DOMAttributes<T> {
+    interface IntrinsicAttributes<T> extends React.DOMAttributes<T> {
       as?: string
     }
   }
