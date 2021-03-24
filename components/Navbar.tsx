@@ -3,6 +3,8 @@ import NextLink from 'next/link'
 import NextImage from 'next/image'
 import tw, { styled } from 'twin.macro'
 
+const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
+
 const Nav = styled.nav`
   ${tw`container flex items-center justify-between p-4 max-w-3xl! mx-auto sticky top-0 bg-white`}
 `
@@ -15,9 +17,13 @@ const Image = styled.div`
   ${tw`inline-block shadow-lg rounded-full w-10 h-10 mr-3`}
 `
 
+const UserName = styled.div`
+  ${tw`font-medium -mt-1 text-3xl`}
+`
+
 const menu = [
   { title: 'Blog', href: '/' },
-  { title: 'Product', href: '/' },
+  { title: 'Projects', href: '/' },
   { title: 'About', href: '/' }
 ]
 
@@ -35,7 +41,7 @@ const Navbar: React.FC = () => {
               height="100%"
             />
           </Image>
-          Junan
+          <UserName>{MY_NAME}</UserName>
         </Link>
       </NextLink>
       <ul tw="flex  mt-1 text-gray-600">

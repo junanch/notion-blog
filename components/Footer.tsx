@@ -1,6 +1,8 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
 
+const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
+
 const Foot = styled.footer`
   ${tw`w-full p-4 text-center text-gray-400 border-t`}
 `
@@ -19,7 +21,9 @@ const Footer: React.FC = () => {
           <Link href="https://tailwindcss.com/">Tailwind CSS</Link>,{' '}
           <Link href="https://notion.so">Notion</Link>.{' '}
         </div>
-        <div>Junan © 2020-{currentYear}</div>
+        <div>
+          {MY_NAME} © 2020-{currentYear}
+        </div>
       </div>
     </Foot>
   )

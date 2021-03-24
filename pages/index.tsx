@@ -1,10 +1,12 @@
 import React from 'react'
+import NextHead from 'next/head'
 import tw, { styled } from 'twin.macro'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PostCard, { PostItem } from '../components/PostCard'
 
 const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID
+const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
 export interface Author {
   id: string
@@ -56,22 +58,27 @@ const Main = styled.main`
 
 const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) => {
   return (
-    <div className="relative flex flex-col min-h-screen bg-white">
-      <Navbar />
-      <Main>
-        <PostWrapper>
-          {posts.map(
-            post =>
-              post.published && (
-                <PostItem key={post.id}>
-                  <PostCard post={post} />
-                </PostItem>
-              )
-          )}
-        </PostWrapper>
-      </Main>
-      <Footer />
-    </div>
+    <>
+      <NextHead>
+        <title>{MY_NAME} Blog</title>
+      </NextHead>
+      <div className="relative flex flex-col min-h-screen bg-white">
+        <Navbar />
+        <Main>
+          <PostWrapper>
+            {posts.map(
+              post =>
+                post.published && (
+                  <PostItem key={post.id}>
+                    <PostCard post={post} />
+                  </PostItem>
+                )
+            )}
+          </PostWrapper>
+        </Main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
