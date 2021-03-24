@@ -8,11 +8,23 @@ import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
 import { formatSlug } from '../../../utils/util'
 
+interface IStaticProps {
+  props: {
+    blocks: Promise<Response>
+    post: Post
+  }
+  revalidate?: number
+}
+
+interface IParams {
+  slug: string
+}
+
 export const getStaticProps = async ({
   params: { slug }
 }: {
-  params: { slug: string }
-}): Promise<{ props: { post: Post; blocks: Promise<Response> } }> => {
+  params: IParams
+}): Promise<IStaticProps> => {
   // Get all posts again
   const posts = await getAllPosts()
 
@@ -27,7 +39,8 @@ export const getStaticProps = async ({
     props: {
       blocks,
       post
-    }
+    },
+    revalidate: 1
   }
 }
 

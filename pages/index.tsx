@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PostCard, { PostItem } from '../components/PostCard'
 
-const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '661514f8aa7a48ae9f554186a440ff99'
+const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID
 
 export interface Author {
   id: string
@@ -25,16 +25,24 @@ export interface Post {
   preview: string
 }
 
+interface IStaticProps {
+  props: {
+    posts: Post[]
+  }
+  revalidate?: number
+}
+
 export const getAllPosts = async (): Promise<Post[]> => {
   return await fetch(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res =>
     res.json()
   )
 }
 
-export const getStaticProps = async (): Promise<{ props: { posts: Post[] } }> => {
+export const getStaticProps = async (): Promise<IStaticProps> => {
   const posts = await getAllPosts()
   return {
-    props: { posts }
+    props: { posts },
+    revalidate: 1
   }
 }
 
