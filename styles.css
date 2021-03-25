@@ -23,8 +23,3 @@
 .notion-viewport {
   z-index: -10;
 }
-.notion-page,
-.notion-full-width {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}

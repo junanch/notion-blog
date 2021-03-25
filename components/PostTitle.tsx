@@ -1,10 +1,10 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
 import { CalendarOutline } from 'heroicons-react'
-import { IPost } from '../pages'
+import { IPost } from '../pages/[year]/[month]/[slug]'
 
 const PostTitleWrapper = styled.header`
-  ${tw`mb-12 text-center`}
+  ${tw`my-12 text-center`}
 `
 
 const PostTitle: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {

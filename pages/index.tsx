@@ -4,28 +4,10 @@ import tw, { styled } from 'twin.macro'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import PostItem, { PostCard } from '../components/PostItem'
+import { IPost } from './[year]/[month]/[slug]'
 
 const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
-
-export interface IAuthor {
-  id: string
-  firstName: string
-  lastName: string
-  fullName: string
-  profilePhoto: string
-}
-
-export interface IPost {
-  id: string
-  name: string
-  tag: string
-  published: boolean
-  date: string
-  slug: string
-  author: IAuthor[]
-  preview: string
-}
 
 interface IStaticProps {
   props: {
@@ -48,12 +30,12 @@ export const getStaticProps = async (): Promise<IStaticProps> => {
   }
 }
 
-const PostWrapper = styled.section`
-  ${tw`grid gap-4 mx-auto divide-gray-100`}
+const PostWrapper = styled.ul`
+  ${tw`grid gap-1 mx-auto divide-gray-100`}
 `
 
 const Main = styled.main`
-  ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-4xl! my-10`}
+  ${tw`container sm:px-6 flex-grow justify-center 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto my-10 px-4!`}
 `
 
 const HomePages: React.FC<{ posts: IPost[] }> = ({ posts }: { posts: IPost[] }) => {

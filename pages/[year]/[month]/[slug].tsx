@@ -2,12 +2,13 @@ import React from 'react'
 import NextHead from 'next/head'
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
+import tw, { styled } from 'twin.macro'
 import { Code, Equation, NotionRenderer } from 'react-notion-x'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
 import Disqus from '../../../components/Disqus'
-import { getAllPosts, IPost } from '../..'
+import { getAllPosts } from '../../index'
 import { formatSlug } from '../../../utils/slugFormat'
 import Pagination, { IPagination } from '../../../components/Pagination'
 
@@ -22,6 +23,29 @@ export interface IStaticProps {
   }
   revalidate?: number
 }
+
+export interface IAuthor {
+  id: string
+  firstName: string
+  lastName: string
+  fullName: string
+  profilePhoto: string
+}
+
+export interface IPost {
+  id: string
+  name: string
+  tag: string[]
+  published: boolean
+  date: string
+  slug: string
+  author: IAuthor[]
+  preview?: string
+}
+
+const NotionMain = styled(NotionRenderer)`
+  ${tw`px-2`}
+`
 
 export const getStaticProps = async ({
   params: { slug }
@@ -76,10 +100,10 @@ const BlogPost: React.FC<{
       <div className="min-h-screen flex flex-col">
         <Navbar />
 
-        <section className="container mx-auto max-w-4xl! px-4">
+        <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4!">
           <PostTitle post={post} />
 
-          <NotionRenderer recordMap={recordMap} components={{ code: Code, equation: Equation }} />
+          <NotionMain recordMap={recordMap} components={{ code: Code, equation: Equation }} />
 
           <Pagination pagination={pagination} />
 

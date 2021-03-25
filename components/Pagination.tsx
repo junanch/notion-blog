@@ -1,7 +1,7 @@
 import React from 'react'
 import NextLink from 'next/link'
 import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
-import { IPost } from '../pages'
+import { IPost } from '../pages/[year]/[month]/[slug]'
 import { formatSlug } from '../utils/slugFormat'
 import tw, { styled } from 'twin.macro'
 
@@ -11,7 +11,11 @@ export interface IPagination {
 }
 
 const PaginationWrapper = styled.section`
-  ${tw`mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600`}
+  ${tw`flex text-sm text-gray-600 my-4 space-x-4`}
+`
+
+const Link = styled.a`
+  ${tw`w-full p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2`}
 `
 
 const Pagination: React.FC<{ pagination: IPagination }> = ({
@@ -21,25 +25,29 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
 }) => {
   return (
     <PaginationWrapper>
-      {pagination.prev && (
+      {pagination.prev ? (
         <NextLink
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.prev.date, pagination.prev.slug)}>
-          <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
+          <Link href={formatSlug(pagination.prev.date, pagination.prev.slug)}>
             <ChevronLeftOutline size={20} />
-            <span>{pagination.prev?.name}</span>
-          </a>
+            <div style={{ flexBasis: '90%', textAlign: 'right' }}>{pagination.prev?.name}</div>
+          </Link>
         </NextLink>
+      ) : (
+        <div className="w-full">&nbsp;</div>
       )}
-      {pagination.next && (
+      {pagination.next ? (
         <NextLink
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.next.date, pagination.next.slug)}>
-          <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
-            <span>{pagination.next?.name}</span>
+          <Link href={formatSlug(pagination.next.date, pagination.next.slug)}>
+            <div style={{ flexBasis: '90%' }}>{pagination.next?.name}</div>
             <ChevronRightOutline size={20} />
-          </a>
+          </Link>
         </NextLink>
+      ) : (
+        <div className="w-full">&nbsp;</div>
       )}
     </PaginationWrapper>
   )
