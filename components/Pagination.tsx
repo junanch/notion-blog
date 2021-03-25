@@ -3,11 +3,16 @@ import NextLink from 'next/link'
 import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
 import { Post } from '../pages'
 import { formatSlug } from '../utils/slugFormat'
+import tw, { styled } from 'twin.macro'
 
 export interface IPagination {
   prev: Post | null
   next: Post | null
 }
+
+const PaginationWrapper = styled.section`
+  ${tw`mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600`}
+`
 
 const Pagination: React.FC<{ pagination: IPagination }> = ({
   pagination
@@ -15,7 +20,7 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
   pagination: IPagination
 }) => {
   return (
-    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+    <PaginationWrapper>
       {pagination.prev && (
         <NextLink
           href="/[year]/[month]/[slug]"
@@ -36,7 +41,7 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           </a>
         </NextLink>
       )}
-    </div>
+    </PaginationWrapper>
   )
 }
 
