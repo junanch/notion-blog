@@ -4,13 +4,15 @@ import React from 'react'
 import { BlockMapType, NotionRenderer } from 'react-notion'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'react-notion/src/styles.css'
+import { DiscussionEmbed } from 'disqus-react'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import Pagination, { IPagination } from '../../../components/Pagination'
 import { getAllPosts, Post } from '../..'
-import { formatSlug } from '../../../utils/util'
+import { formatSlug } from '../../../utils/slugFormat'
 
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
+const DISQUS_SHORTNAME = process.env.NEXT_PUBLIC_DISQUS_SHORTNAME
 
 export interface IStaticProps {
   props: {
@@ -27,7 +29,7 @@ export const getStaticProps = async ({
   params: { slug: string }
 }): Promise<IStaticProps> => {
   // fetch all posts
-  const posts = await getAllPosts()
+  const posts = (await getAllPosts()).filter(post => post.published)
 
   // find the current blogpost by slug
   const postIndex = posts.findIndex(post => post.slug === slug)
@@ -99,6 +101,13 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType; pagination: IPagina
             <NotionRenderer blockMap={blocks} />
 
             <Pagination pagination={pagination} />
+
+            <div className="mt-8">
+              <DiscussionEmbed
+                shortname={DISQUS_SHORTNAME}
+                config={{ identifier: formatSlug(post.date, post.slug) }}
+              />
+            </div>
           </div>
         </div>
 
@@ -109,7 +118,7 @@ const BlogPost: React.FC<{ post: Post; blocks: BlockMapType; pagination: IPagina
 }
 
 export const getStaticPaths = async (): Promise<{ paths: string[]; fallback: boolean }> => {
-  const table = await getAllPosts()
+  const table = (await getAllPosts()).filter(post => post.published)
   return {
     paths: table.map(row => formatSlug(row.date, row.slug)),
     fallback: true

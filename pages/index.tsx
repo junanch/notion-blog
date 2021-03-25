@@ -41,7 +41,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
 }
 
 export const getStaticProps = async (): Promise<IStaticProps> => {
-  const posts = await getAllPosts()
+  const posts = (await getAllPosts()).filter(post => post.published)
   return {
     props: { posts },
     revalidate: 1

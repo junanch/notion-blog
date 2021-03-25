@@ -2,7 +2,7 @@ import React from 'react'
 import NextLink from 'next/link'
 import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
 import { Post } from '../pages'
-import { formatSlug } from '../utils/util'
+import { formatSlug } from '../utils/slugFormat'
 
 export interface IPagination {
   prev: Post | null
