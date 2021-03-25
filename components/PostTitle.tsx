@@ -4,7 +4,7 @@ import { CalendarOutline } from 'heroicons-react'
 import { IPost } from '../pages/[year]/[month]/[slug]'
 
 const PostTitleWrapper = styled.header`
-  ${tw`my-12 text-center`}
+  ${tw``}
 `
 
 const PostTitle: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
@@ -12,7 +12,7 @@ const PostTitle: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
     <PostTitleWrapper>
       <div className="text-3xl font-bold mb-3">{post.name}</div>
 
-      <div className="text-sm text-gray-600 flex items-center justify-center space-x-1">
+      <div className="text-sm text-gray-600 flex items-center space-x-1">
         <div className="flex items-center">
           <CalendarOutline size={16} className="mr-2" />
           <span>{new Date(post.date).toLocaleDateString()} · </span>

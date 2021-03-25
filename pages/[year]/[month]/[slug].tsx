@@ -8,6 +8,7 @@ import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
 import Disqus from '../../../components/Disqus'
+import GridLines from '../../../components/GridLines'
 import { getAllPosts } from '../../index'
 import { formatSlug } from '../../../utils/slugFormat'
 import Pagination, { IPagination } from '../../../components/Pagination'
@@ -100,9 +101,11 @@ const BlogPost: React.FC<{
       <div className="min-h-screen flex flex-col">
         <Navbar />
 
-        <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4!">
+        <GridLines>
           <PostTitle post={post} />
+        </GridLines>
 
+        <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4!">
           <NotionMain recordMap={recordMap} components={{ code: Code, equation: Equation }} />
 
           <Pagination pagination={pagination} />

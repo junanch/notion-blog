@@ -6,7 +6,7 @@ import tw, { styled } from 'twin.macro'
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
 const Nav = styled.nav`
-  ${tw`sticky top-0 bg-white z-10`}
+  ${tw`sticky top-0 bg-white z-10 shadow`}
 `
 
 const Container = styled.div`
