@@ -2,7 +2,7 @@ import React from 'react'
 import { DiscussionEmbed } from 'disqus-react'
 import tw, { styled } from 'twin.macro'
 import { formatSlug } from '../utils/slugFormat'
-import { Post } from '../pages'
+import { IPost } from '../pages'
 
 const DISQUS_SHORTNAME = process.env.NEXT_PUBLIC_DISQUS_SHORTNAME
 
@@ -10,7 +10,7 @@ const DisqusWrapper = styled.section`
   ${tw`mt-8`}
 `
 
-const Disqus: React.FC<{ post: Post }> = ({ post }: { post: Post }) => {
+const Disqus: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
   return (
     <DisqusWrapper>
       <DiscussionEmbed

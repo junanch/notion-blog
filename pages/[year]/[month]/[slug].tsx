@@ -7,7 +7,7 @@ import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
 import Disqus from '../../../components/Disqus'
-import { getAllPosts, Post } from '../..'
+import { getAllPosts, IPost } from '../..'
 import { formatSlug } from '../../../utils/slugFormat'
 import Pagination, { IPagination } from '../../../components/Pagination'
 
@@ -16,7 +16,7 @@ const notion = new NotionAPI()
 
 export interface IStaticProps {
   props: {
-    post: Post
+    post: IPost
     recordMap: ExtendedRecordMap
     pagination: IPagination
   }
@@ -50,12 +50,16 @@ export const getStaticProps = async ({
   }
 }
 
-const BlogPost: React.FC<{ post: Post; recordMap: ExtendedRecordMap; pagination: IPagination }> = ({
+const BlogPost: React.FC<{
+  post: IPost
+  recordMap: ExtendedRecordMap
+  pagination: IPagination
+}> = ({
   post,
   recordMap,
   pagination
 }: {
-  post: Post
+  post: IPost
   recordMap: ExtendedRecordMap
   pagination: IPagination
 }) => {

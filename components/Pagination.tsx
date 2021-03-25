@@ -1,13 +1,13 @@
 import React from 'react'
 import NextLink from 'next/link'
 import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
-import { Post } from '../pages'
+import { IPost } from '../pages'
 import { formatSlug } from '../utils/slugFormat'
 import tw, { styled } from 'twin.macro'
 
 export interface IPagination {
-  prev: Post | null
-  next: Post | null
+  prev: IPost | null
+  next: IPost | null
 }
 
 const PaginationWrapper = styled.section`

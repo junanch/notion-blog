@@ -8,7 +8,7 @@ import PostItem, { PostCard } from '../components/PostItem'
 const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
-export interface Author {
+export interface IAuthor {
   id: string
   firstName: string
   lastName: string
@@ -16,25 +16,25 @@ export interface Author {
   profilePhoto: string
 }
 
-export interface Post {
+export interface IPost {
   id: string
   name: string
   tag: string
   published: boolean
   date: string
   slug: string
-  author: Author[]
+  author: IAuthor[]
   preview: string
 }
 
 interface IStaticProps {
   props: {
-    posts: Post[]
+    posts: IPost[]
   }
   revalidate?: number
 }
 
-export const getAllPosts = async (): Promise<Post[]> => {
+export const getAllPosts = async (): Promise<IPost[]> => {
   return await fetch(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res =>
     res.json()
   )
@@ -56,7 +56,7 @@ const Main = styled.main`
   ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-4xl! my-10`}
 `
 
-const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) => {
+const HomePages: React.FC<{ posts: IPost[] }> = ({ posts }: { posts: IPost[] }) => {
   return (
     <>
       <NextHead>
