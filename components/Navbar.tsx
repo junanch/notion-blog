@@ -6,7 +6,8 @@ import tw, { styled } from 'twin.macro'
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
 const Nav = styled.nav`
-  ${tw`container flex items-center justify-between p-4 max-w-3xl! mx-auto sticky top-0 bg-white`}
+  ${tw`container flex items-center justify-between p-4 max-w-4xl! mx-auto sticky top-0 bg-white`}
+  z-index: 10;
 `
 
 const Link = styled.a`

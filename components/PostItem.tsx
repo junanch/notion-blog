@@ -5,11 +5,11 @@ import { Post } from '../pages/index'
 import { formatSlug } from '../utils/slugFormat'
 import { CalendarOutline, TagOutline } from 'heroicons-react'
 
-export const PostItem = styled.div`
+export const PostCard = styled.div`
   ${tw`flex flex-col flex-1 p-4 cursor-pointer rounded-lg hover:bg-gray-50 `}
 `
 
-const PostCard: React.FC<{ post: Post }> = ({ post }: { post: Post }) => {
+const PostItem: React.FC<{ post: Post }> = ({ post }: { post: Post }) => {
   return (
     <NextLink href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
       <a className="p-4 hover:bg-gray-50">
@@ -29,4 +29,4 @@ const PostCard: React.FC<{ post: Post }> = ({ post }: { post: Post }) => {
   )
 }
 
-export default PostCard
+export default PostItem

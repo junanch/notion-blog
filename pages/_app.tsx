@@ -1,8 +1,12 @@
 import { AppProps } from 'next/app'
 import Router from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
-import '../styles.css'
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace'
+import '../styles.css'
+import 'react-notion-x/src/styles.css'
+import 'prismjs/themes/prism-tomorrow.css'
+import 'rc-dropdown/assets/index.css'
+import 'katex/dist/katex.min.css'
 
 const progress = new ProgressBar({
   size: 2,

@@ -3,7 +3,7 @@ import NextHead from 'next/head'
 import tw, { styled } from 'twin.macro'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import PostCard, { PostItem } from '../components/PostCard'
+import PostItem, { PostCard } from '../components/PostItem'
 
 const NOTION_BLOG_ID = process.env.NEXT_PUBLIC_NOTION_BLOG_ID
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
@@ -53,7 +53,7 @@ const PostWrapper = styled.section`
 `
 
 const Main = styled.main`
-  ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl! my-10`}
+  ${tw`container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-4xl! my-10`}
 `
 
 const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) => {
@@ -69,9 +69,9 @@ const HomePages: React.FC<{ posts: Post[] }> = ({ posts }: { posts: Post[] }) =>
             {posts.map(
               post =>
                 post.published && (
-                  <PostItem key={post.id}>
-                    <PostCard post={post} />
-                  </PostItem>
+                  <PostCard key={post.id}>
+                    <PostItem post={post} />
+                  </PostCard>
                 )
             )}
           </PostWrapper>
