@@ -1,10 +1,31 @@
 import React from 'react'
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 import tw, { styled } from 'twin.macro'
 
-const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
+export interface IGithubInfo {
+  name: string
 
+  [propName: string]: string
+}
+
+interface IProps {
+  githubInfo: IGithubInfo
+}
+
+// config
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME
+const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
+const menu = [
+  { title: 'Blog', href: '/' },
+  { title: 'Projects', href: '/' },
+  { title: 'About', href: '/' }
+]
+
+export const getGithubInfo = async (): Promise<IGithubInfo> => {
+  return await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`).then(res => res.json())
+}
+
+// style
 const Nav = styled.nav`
   ${tw`sticky top-0 bg-white z-10 shadow`}
 `
@@ -17,7 +38,7 @@ const Link = styled.a`
   ${tw`flex items-center mr-3 hover:text-gray-700 md:mr-5`}
 `
 
-const Image = styled.div`
+const Image = styled.img`
   ${tw`inline-block shadow-lg rounded-full w-10 h-10 mr-3`}
 `
 
@@ -25,27 +46,13 @@ const UserName = styled.div`
   ${tw`font-medium text-3xl flex items-center h-10`}
 `
 
-const menu = [
-  { title: 'Blog', href: '/' },
-  { title: 'Projects', href: '/' },
-  { title: 'About', href: '/' }
-]
-
-const Navbar: React.FC = () => {
+const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
   return (
     <Nav>
       <Container>
         <NextLink href="/">
           <Link href="/">
-            <Image>
-              <NextImage
-                tw="rounded-full"
-                src="/images/avatar.png"
-                alt="avatar"
-                width="100%"
-                height="100%"
-              />
-            </Image>
+            <Image src={githubInfo.avatar} alt="avatar" />
             <UserName>{MY_NAME}</UserName>
           </Link>
         </NextLink>

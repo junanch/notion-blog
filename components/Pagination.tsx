@@ -1,6 +1,5 @@
 import React from 'react'
 import NextLink from 'next/link'
-import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
 import { IPost } from '../pages/[year]/[month]/[slug]'
 import { formatSlug } from '../utils/slugFormat'
 import tw, { styled } from 'twin.macro'
@@ -15,7 +14,7 @@ const PaginationWrapper = styled.section`
 `
 
 const Link = styled.a`
-  ${tw`w-full p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2`}
+  ${tw`w-full p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex flex-col`}
 `
 
 const Pagination: React.FC<{ pagination: IPagination }> = ({
@@ -30,8 +29,8 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.prev.date, pagination.prev.slug)}>
           <Link href={formatSlug(pagination.prev.date, pagination.prev.slug)}>
-            <ChevronLeftOutline size={20} />
-            <div style={{ flexBasis: '90%', textAlign: 'right' }}>{pagination.prev?.name}</div>
+            <div className="font-semibold">Previous:</div>
+            <div>{pagination.prev?.name}</div>
           </Link>
         </NextLink>
       ) : (
@@ -42,8 +41,8 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.next.date, pagination.next.slug)}>
           <Link href={formatSlug(pagination.next.date, pagination.next.slug)}>
-            <div style={{ flexBasis: '90%' }}>{pagination.next?.name}</div>
-            <ChevronRightOutline size={20} />
+            <div className="font-semibold">Next:</div>
+            <div>{pagination.next?.name}</div>
           </Link>
         </NextLink>
       ) : (

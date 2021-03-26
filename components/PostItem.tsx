@@ -47,7 +47,7 @@ const PostItem: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
           {post.tag.map(
             tag =>
               tag && (
-                <Tag>
+                <Tag key={tag}>
                   <TagOutline size={16} />
                   <span>{tag}</span>
                 </Tag>

@@ -4,7 +4,7 @@ import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
 import tw, { styled } from 'twin.macro'
 import { Code, Equation, NotionRenderer } from 'react-notion-x'
-import Navbar from '../../../components/Navbar'
+import Navbar, { IGithubInfo, getGithubInfo } from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
 import Disqus from '../../../components/Disqus'
@@ -15,15 +15,6 @@ import Pagination, { IPagination } from '../../../components/Pagination'
 
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 const notion = new NotionAPI()
-
-export interface IStaticProps {
-  props: {
-    post: IPost
-    recordMap: ExtendedRecordMap
-    pagination: IPagination
-  }
-  revalidate?: number
-}
 
 export interface IAuthor {
   id: string
@@ -44,9 +35,17 @@ export interface IPost {
   preview?: string
 }
 
-const NotionMain = styled(NotionRenderer)`
-  ${tw`px-2`}
-`
+interface IProps {
+  post: IPost
+  recordMap: ExtendedRecordMap
+  pagination: IPagination
+  githubInfo: IGithubInfo
+}
+
+export interface IStaticProps {
+  props: IProps
+  revalidate?: number
+}
 
 export const getStaticProps = async ({
   params: { slug }
@@ -65,29 +64,24 @@ export const getStaticProps = async ({
 
   const recordMap = await notion.getPage(post?.id)
 
+  const { avatar_url: avatar, ...githubInfo } = await getGithubInfo()
+
   return {
     props: {
       recordMap,
       post,
-      pagination
+      pagination,
+      githubInfo: { ...githubInfo, avatar }
     },
     revalidate: 1
   }
 }
 
-const BlogPost: React.FC<{
-  post: IPost
-  recordMap: ExtendedRecordMap
-  pagination: IPagination
-}> = ({
-  post,
-  recordMap,
-  pagination
-}: {
-  post: IPost
-  recordMap: ExtendedRecordMap
-  pagination: IPagination
-}) => {
+const NotionMain = styled(NotionRenderer)`
+  ${tw`px-2`}
+`
+
+const BlogPost = ({ post, recordMap, pagination, githubInfo }: IProps): React.ReactNode => {
   if (!post) return null
 
   return (
@@ -99,13 +93,13 @@ const BlogPost: React.FC<{
       </NextHead>
 
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        <Navbar githubInfo={githubInfo} />
 
         <GridLines>
           <PostTitle post={post} />
         </GridLines>
 
-        <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4!">
+        <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4! my-8">
           <NotionMain recordMap={recordMap} components={{ code: Code, equation: Equation }} />
 
           <Pagination pagination={pagination} />

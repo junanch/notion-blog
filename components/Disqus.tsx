@@ -7,7 +7,7 @@ import { IPost } from '../pages/[year]/[month]/[slug]'
 const DISQUS_SHORTNAME = process.env.NEXT_PUBLIC_DISQUS_SHORTNAME
 
 const DisqusWrapper = styled.section`
-  ${tw`my-8`}
+  ${tw`mt-8`}
 `
 
 const Disqus: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {

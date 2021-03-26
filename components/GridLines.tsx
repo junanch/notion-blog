@@ -3,8 +3,7 @@ import Grid from 'animated-grid-lines'
 import tw, { styled } from 'twin.macro'
 
 const GridLinesWrap = styled.section`
-  ${tw`relative flex mb-10`}
-  min-height: 26rem;
+  ${tw`relative flex`}
 `
 
 const GridLine = styled(Grid)`
@@ -19,13 +18,15 @@ const GridBox = styled.div`
   ${tw`py-10 px-8 bg-white bg-opacity-80 dark:bg-blue-900 dark:bg-opacity-80 shadow-md relative`}
 `
 
-const GridLines: React.FC = ({ children }: { children: React.ReactNode }) => {
+const GridLines: React.FC = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <GridLinesWrap>
+    <GridLinesWrap css={[children ? '' : tw`absolute top-0 left-0 right-0`]}>
       <GridLine />
-      <GridContainer>
-        <GridBox>{children}</GridBox>
-      </GridContainer>
+      {children && (
+        <GridContainer>
+          <GridBox>{children}</GridBox>
+        </GridContainer>
+      )}
     </GridLinesWrap>
   )
 }
