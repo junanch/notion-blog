@@ -14,7 +14,7 @@ const LinkWrap = styled.a`
 `
 
 const TitleWrap = styled.div`
-  ${tw`font-bold text-xl mb-3`}
+  ${tw`font-bold text-xl mb-3 text-gray-700`}
 `
 
 const DateWrap = styled.div`

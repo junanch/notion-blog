@@ -4,7 +4,6 @@ import tw, { styled } from 'twin.macro'
 
 export interface IGithubInfo {
   name: string
-
   [propName: string]: string
 }
 
@@ -14,11 +13,10 @@ interface IProps {
 
 // config
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME
-const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 const menu = [
   { title: 'Blog', href: '/' },
-  { title: 'Projects', href: '/' },
-  { title: 'About', href: '/' }
+  { title: 'Notes', href: '/notes' },
+  { title: 'About', href: '/about' }
 ]
 
 export const getGithubInfo = async (): Promise<IGithubInfo> => {
@@ -31,11 +29,11 @@ const Nav = styled.nav`
 `
 
 const Container = styled.div`
-  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto flex items-center justify-between p-4`}
+  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto flex items-center justify-between py-4 px-8`}
 `
 
 const Link = styled.a`
-  ${tw`flex items-center mr-3 hover:text-gray-700 md:mr-5`}
+  ${tw`flex items-center mr-3 hover:text-gray-700 md:mr-5 font-medium`}
 `
 
 const Image = styled.img`
@@ -43,7 +41,7 @@ const Image = styled.img`
 `
 
 const UserName = styled.div`
-  ${tw`font-medium text-3xl flex items-center h-10`}
+  ${tw`font-normal text-gray-600 text-xl flex items-center h-10`}
 `
 
 const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
@@ -53,10 +51,10 @@ const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
         <NextLink href="/">
           <Link href="/">
             <Image src={githubInfo.avatar} alt="avatar" />
-            <UserName>{MY_NAME}</UserName>
+            <UserName>Home</UserName>
           </Link>
         </NextLink>
-        <ul tw="flex  mt-1 text-gray-600">
+        <ul tw="flex mt-1 text-gray-600">
           {menu.map((item, index) => (
             <li key={index}>
               <NextLink href={item.href}>

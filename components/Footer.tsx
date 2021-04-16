@@ -1,13 +1,11 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
+import { Heart } from 'heroicons-react'
 
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
 const Foot = styled.footer`
   ${tw`w-full p-4 text-center text-gray-400 border-t`}
-`
-const Link = styled.a`
-  ${tw`hover:text-gray-500`}
 `
 
 const Footer: React.FC = () => {
@@ -16,13 +14,10 @@ const Footer: React.FC = () => {
   return (
     <Foot>
       <div className="container mx-auto">
-        <div>
-          Powered by <Link href="https://nextjs.org/">Next.js</Link>,{' '}
-          <Link href="https://tailwindcss.com/">Tailwind CSS</Link>,{' '}
-          <Link href="https://notion.so">Notion</Link>.{' '}
-        </div>
-        <div>
-          {MY_NAME} © 2020-{currentYear}
+        <div className="flex items-center justify-center">
+          {MY_NAME}
+          <Heart className="mx-1" size={20} />
+          2020-{currentYear}
         </div>
       </div>
     </Foot>
