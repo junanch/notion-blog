@@ -2,7 +2,7 @@ import React from 'react'
 import NextLink from 'next/link'
 import tw, { styled } from 'twin.macro'
 import { formatSlug } from '../utils/slugFormat'
-import { CalendarOutline, TagOutline } from 'heroicons-react'
+import { CalendarIcon, TagIcon } from '@heroicons/react/outline'
 import { IPost } from '../pages/[year]/[month]/[slug]'
 
 export const PostCard = styled.li`
@@ -39,7 +39,7 @@ const PostItem: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
       <LinkWrap href={formatSlug(post.date, post.slug)}>
         <TitleWrap>{post.name}</TitleWrap>
         <DateWrap>
-          <CalendarOutline size={16} />
+          <CalendarIcon className="w-4 h-4" />
           <span>{new Date(post.date).toLocaleDateString()}</span>
         </DateWrap>
         <Description>{post.preview}</Description>
@@ -48,7 +48,7 @@ const PostItem: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
             tag =>
               tag && (
                 <Tag key={tag}>
-                  <TagOutline size={16} />
+                  <TagIcon className="h-4 w-4" />
                   <span>{tag}</span>
                 </Tag>
               )

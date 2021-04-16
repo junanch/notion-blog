@@ -1,6 +1,6 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
-import { Heart } from 'heroicons-react'
+import { HeartIcon } from '@heroicons/react/solid'
 
 const MY_NAME = process.env.NEXT_PUBLIC_MY_NAME
 
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-center">
           {MY_NAME}
-          <Heart className="mx-1" size={20} />
+          <HeartIcon className="w-5 h-5 mx-1" />
           2020-{currentYear}
         </div>
       </div>

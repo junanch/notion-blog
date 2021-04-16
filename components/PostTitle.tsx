@@ -1,6 +1,6 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro'
-import { CalendarOutline } from 'heroicons-react'
+import { CalendarIcon } from '@heroicons/react/outline'
 import { IPost } from '../pages/[year]/[month]/[slug]'
 
 const PostTitleWrapper = styled.header`
@@ -14,7 +14,7 @@ const PostTitle: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
 
       <div className="text-lg text-gray-600 flex items-center space-x-1">
         <time className="flex items-center">
-          <CalendarOutline size={18} className="mr-2" />
+          <CalendarIcon className="w-4 h-4 mr-2" />
           <span>{new Date(post.date).toLocaleDateString()}</span>
         </time>
       </div>
