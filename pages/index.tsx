@@ -20,9 +20,9 @@ interface IStaticProps {
 }
 
 export const getAllPosts = async (): Promise<IPost[]> => {
-  return await fetch(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res =>
-    res.json()
-  )
+  return await fetch(
+    `https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`
+  ).then(res => res.json())
 }
 
 export const getStaticProps = async (): Promise<IStaticProps> => {

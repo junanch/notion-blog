@@ -20,7 +20,9 @@ const menu = [
 ]
 
 export const getGithubInfo = async (): Promise<IGithubInfo> => {
-  return await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`).then(res => res.json())
+  return await fetch(
+    `https://api.github.com/users/${GITHUB_USERNAME}`
+  ).then(res => res.json())
 }
 
 // style

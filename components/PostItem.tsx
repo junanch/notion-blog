@@ -35,7 +35,10 @@ const Tag = styled.label`
 
 const PostItem: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {
   return (
-    <NextLink href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
+    <NextLink
+      href="/[year]/[month]/[slug]"
+      as={formatSlug(post.date, post.slug)}
+    >
       <LinkWrap href={formatSlug(post.date, post.slug)}>
         <TitleWrap>{post.name}</TitleWrap>
         <DateWrap>
