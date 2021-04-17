@@ -3,7 +3,8 @@ import NextHead from 'next/head'
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
 import tw, { styled } from 'twin.macro'
-import { Code, Equation, NotionRenderer } from 'react-notion-x'
+import { Equation, NotionRenderer } from 'react-notion-x'
+import NotionCode from '../../../components/NotionCode'
 import Navbar, { IGithubInfo, getGithubInfo } from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
@@ -81,7 +82,12 @@ const NotionMain = styled(NotionRenderer)`
   ${tw`px-2`}
 `
 
-const BlogPost = ({ post, recordMap, pagination, githubInfo }: IProps): React.ReactNode => {
+const BlogPost = ({
+  post,
+  recordMap,
+  pagination,
+  githubInfo
+}: IProps): React.ReactNode => {
   if (!post) return null
 
   return (
@@ -100,7 +106,10 @@ const BlogPost = ({ post, recordMap, pagination, githubInfo }: IProps): React.Re
         </GridLines>
 
         <section className="container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-4! my-8">
-          <NotionMain recordMap={recordMap} components={{ code: Code, equation: Equation }} />
+          <NotionMain
+            recordMap={recordMap}
+            components={{ code: NotionCode, equation: Equation }}
+          />
 
           <Pagination pagination={pagination} />
 
@@ -114,7 +123,10 @@ const BlogPost = ({ post, recordMap, pagination, githubInfo }: IProps): React.Re
 }
 
 // 动态路径
-export const getStaticPaths = async (): Promise<{ paths: string[]; fallback: boolean }> => {
+export const getStaticPaths = async (): Promise<{
+  paths: string[]
+  fallback: boolean
+}> => {
   const table = (await getAllPosts()).filter(post => post.published)
   return {
     paths: table.map(row => formatSlug(row.date, row.slug)),
