@@ -30,7 +30,7 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           as={formatSlug(pagination.prev.date, pagination.prev.slug)}
         >
           <Link href={formatSlug(pagination.prev.date, pagination.prev.slug)}>
-            <div className="font-semibold">Previous:</div>
+            <div className="font-bold">Previous:</div>
             <div>{pagination.prev?.name}</div>
           </Link>
         </NextLink>
@@ -43,7 +43,7 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           as={formatSlug(pagination.next.date, pagination.next.slug)}
         >
           <Link href={formatSlug(pagination.next.date, pagination.next.slug)}>
-            <div className="font-semibold">Next:</div>
+            <div className="font-bold">Next:</div>
             <div>{pagination.next?.name}</div>
           </Link>
         </NextLink>
