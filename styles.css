@@ -16,21 +16,16 @@ body {
   @apply block;
 }
 
-.notion-hr {
-  @apply border-t border-solid bg-gray-200 my-8;
-}
-
 .notion-h {
-  display: block;
+  @apply block;
 }
 
 .notion b {
   @apply font-medium;
 }
 
-.notion-list-disc,
-.notion-list-numbered {
-  @apply pl-5;
+.notion-hr {
+  @apply border-t border-solid bg-gray-200 my-8;
 }
 
 .notion-list-disc > .notion-list-numbered,
@@ -50,7 +45,7 @@ body {
 }
 
 .notion-quote {
-  @apply bg-yellow-100 border-l-8 border-yellow-500 my-6 p-3;
+  @apply bg-yellow-100 border-l-8 border-yellow-500 my-6 p-3 rounded-sm;
 }
 
 .notion-bookmark {
@@ -63,4 +58,17 @@ body {
 
 .notion-viewport {
   z-index: -10;
+}
+
+.notion-asset-wrapper img {
+  @apply rounded-sm;
+}
+
+.notion-property-checkbox-checked,
+.notion-property-checkbox-unchecked {
+  @apply rounded-sm;
+}
+
+.notion-callout {
+  @apply border-0;
 }

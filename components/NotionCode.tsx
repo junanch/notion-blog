@@ -4,19 +4,19 @@ import 'prismjs/components/prism-jsx'
 import 'dracula-prism/dist/css/dracula-prism.css'
 import tw, { styled } from 'twin.macro'
 
-const PreStyle = tw`text-lg py-8 relative`
+const PreStyle = tw`text-lg py-8 relative rounded`
 
 const Pre = styled.pre`
   &::-webkit-scrollbar {
-    ${tw`h-2 w-5`}
+    ${tw`h-2 w-2`}
   }
 
   &::-webkit-scrollbar-track {
-    ${tw`rounded-b-lg`}
+    ${tw`rounded-b`}
   }
 
   &::-webkit-scrollbar-thumb {
-    ${tw`rounded-lg`}
+    ${tw`rounded`}
   }
 `
 
@@ -25,18 +25,18 @@ const NotionCodeWrap = styled.div`
 `
 
 const Toolbar = styled.section`
-  ${tw`absolute top-3 right-3 text-xs flex space-x-2`}
+  ${tw`absolute top-3 right-1 text-xs flex space-x-1`}
   color: #F8F8F2;
   z-index: 1;
 `
 
 const LanguageTag = styled.label`
-  ${tw`py-0.5 px-2 rounded-b-lg`}
+  ${tw`py-0.5 px-2 rounded-b`}
   background-color: #BD93F9;
 `
 
 const CopyButton = styled.button`
-  ${tw`py-0.5 px-2 rounded-b-lg active:bg-purple-500`}
+  ${tw`py-0.5 px-2 rounded-b active:bg-purple-500`}
   background-color: #BD93F9;
 `
 
