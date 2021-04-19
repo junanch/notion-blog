@@ -36,7 +36,7 @@ export const getStaticProps = async (): Promise<IStaticProps> => {
 }
 
 const PostWrapper = styled.ul`
-  ${tw`grid gap-4 mx-auto divide-gray-100`}
+  ${tw`mx-auto`}
 `
 
 const Main = styled.main`
