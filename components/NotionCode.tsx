@@ -8,7 +8,7 @@ const PreStyle = tw`text-lg py-8 relative`
 
 const Pre = styled.pre`
   &::-webkit-scrollbar {
-    ${tw`h-2`}
+    ${tw`h-2 w-5`}
   }
 
   &::-webkit-scrollbar-track {
