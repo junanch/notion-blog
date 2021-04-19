@@ -23,7 +23,9 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
   pagination: IPagination
 }) => {
   return (
-    <PaginationWrapper>
+    <PaginationWrapper
+      css={[!pagination.prev && !pagination.next && tw`hidden`]}
+    >
       {pagination.prev ? (
         <NextLink
           href="/[year]/[month]/[slug]"

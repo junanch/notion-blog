@@ -1,59 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '~tailwindcss/tailwind.css';
+@import '~katex/dist/katex.min.css';
+@import '~rc-dropdown/assets/index.css';
+@import '~react-notion-x/src/styles.css';
 
 body {
   @apply font-sans;
 }
 
-.notion,
-.notion-text,
-.notion-quote,
-.notion-list,
-.notion-h-title {
-  @apply leading-7;
-  @apply font-sans;
-  @apply text-lg;
+.notion {
+  @apply font-sans text-lg text-gray-700 leading-7;
 }
 
-.notion-bookmark {
-  @apply border-2;
-  @apply border-gray-100;
+.notion-page {
+  @apply block;
 }
 
-.notion-bookmark:hover {
-  @apply border-blue-400;
+.notion-hr {
+  @apply border-t border-solid bg-gray-200 my-8;
 }
 
-.notion-viewport {
-  z-index: -10;
+.notion-h {
+  display: block;
 }
 
 .notion b {
   @apply font-medium;
 }
 
-.notion-quote {
-  @apply bg-yellow-100;
-  @apply border-l-8;
-  @apply border-yellow-500;
-  @apply my-6;
-  @apply p-3;
+.notion-list-disc,
+.notion-list-numbered {
+  @apply pl-5;
 }
 
-.notion-inline-code {
-  @apply text-purple-600;
-  @apply font-normal;
-  @apply bg-purple-50;
+.notion-list-disc > .notion-list-numbered,
+.notion-list-numbered > .notion-list-disc {
+  @apply pl-0;
 }
 
 .notion-link {
-  @apply no-underline;
-  @apply font-medium;
-  @apply border-0;
+  @apply no-underline border-0 font-medium;
   color: #0e7490;
   box-shadow: inset 0 -0.125em 0 0 #fff,
     inset 0 -0.375em 0 0 rgba(165, 243, 252, 0.4);
+}
+
+.notion-inline-code {
+  @apply font-normal text-purple-600 bg-purple-50;
+}
+
+.notion-quote {
+  @apply bg-yellow-100 border-l-8 border-yellow-500 my-6 p-3;
+}
+
+.notion-bookmark {
+  @apply border-2 border-gray-100;
+}
+
+.notion-bookmark:hover {
+  @apply border-blue-500;
+}
+
+.notion-viewport {
+  z-index: -10;
 }
