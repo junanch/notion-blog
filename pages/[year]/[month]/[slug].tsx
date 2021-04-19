@@ -111,6 +111,8 @@ const BlogPost = ({
             components={{ code: NotionCode, equation: Equation }}
           />
 
+          <hr tw="border-gray-100 my-8" />
+
           <Pagination pagination={pagination} />
 
           <Disqus post={post} />

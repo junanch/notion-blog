@@ -4,7 +4,7 @@ import { CalendarIcon } from '@heroicons/react/outline'
 import { IPost } from '../pages/[year]/[month]/[slug]'
 
 const PostTitleWrapper = styled.header`
-  ${tw`p-8 bg-white bg-opacity-80 dark:bg-blue-900 dark:bg-opacity-80 shadow-md relative`}
+  ${tw`p-8 bg-white bg-opacity-80 dark:bg-blue-900 dark:bg-opacity-80 shadow-md relative rounded-sm`}
 `
 
 const Title = styled.h1`

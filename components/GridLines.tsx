@@ -17,7 +17,7 @@ const GridContainer = styled.div`
 const GridLines: React.FC = ({ children }: { children?: React.ReactNode }) => {
   return (
     <GridLinesWrap css={[children ? '' : tw`absolute top-0 left-0 right-0`]}>
-      <GridLine gridColor="rgb(128, 178, 237, 0.1)" />
+      <GridLine gridColor="rgb(128, 178, 237, 0.2)" />
       {children && <GridContainer>{children}</GridContainer>}
     </GridLinesWrap>
   )

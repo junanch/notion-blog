@@ -10,11 +10,11 @@ export interface IPagination {
 }
 
 const PaginationWrapper = styled.section`
-  ${tw`flex text-sm text-gray-600 my-4 space-x-4`}
+  ${tw`flex leading-6 font-medium my-8`}
 `
 
 const Link = styled.a`
-  ${tw`w-full p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex flex-col`}
+  ${tw`flex items-center transition-colors duration-200 text-gray-500 hover:text-gray-700`}
 `
 
 const Pagination: React.FC<{ pagination: IPagination }> = ({
@@ -31,9 +31,12 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.prev.date, pagination.prev.slug)}
         >
-          <Link href={formatSlug(pagination.prev.date, pagination.prev.slug)}>
-            <div className="font-bold">Previous:</div>
-            <div>{pagination.prev?.name}</div>
+          <Link
+            tw="mr-8"
+            href={formatSlug(pagination.prev.date, pagination.prev.slug)}
+          >
+            <div tw="mr-2">←</div>
+            {pagination.prev?.name}
           </Link>
         </NextLink>
       ) : (
@@ -44,9 +47,12 @@ const Pagination: React.FC<{ pagination: IPagination }> = ({
           href="/[year]/[month]/[slug]"
           as={formatSlug(pagination.next.date, pagination.next.slug)}
         >
-          <Link href={formatSlug(pagination.next.date, pagination.next.slug)}>
-            <div className="font-bold">Next:</div>
-            <div>{pagination.next?.name}</div>
+          <Link
+            tw="ml-auto text-right"
+            href={formatSlug(pagination.next.date, pagination.next.slug)}
+          >
+            {pagination.next?.name}
+            <div tw="ml-2">→</div>
           </Link>
         </NextLink>
       ) : (
