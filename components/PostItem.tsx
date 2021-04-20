@@ -8,6 +8,9 @@ import { IPost } from '../pages/[year]/[month]/[slug]'
 export const PostCard = styled.li`
   ${tw`cursor-pointer px-4 transform transition duration-200
   sm:hover:(bg-gray-50 rounded shadow-lg -translate-y-0.5)`}
+  &:last-child > a {
+    ${tw`border-0`}
+  }
 `
 
 const LinkWrap = styled.a`

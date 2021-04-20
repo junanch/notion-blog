@@ -44,7 +44,7 @@ const Link = styled.a`
 `
 
 const Image = styled.img`
-  ${tw`inline-block shadow-lg rounded-full w-10 h-10 mr-3`}
+  ${tw`inline-block shadow-lg rounded-full w-10 h-10`}
 `
 
 const MenuWrap = styled.ul`
@@ -56,7 +56,7 @@ const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
     <Nav>
       <Container>
         <NextLink href="/">
-          <Link href="/">
+          <Link tw="hover:shadow-none" href="/">
             <Image src={githubInfo?.avatar} alt="avatar" />
           </Link>
         </NextLink>
