@@ -94,7 +94,7 @@ const BlogPost = ({
     <>
       <NextHead>
         <title>
-          {post.name} - {MY_NAME} Blog
+          {post.name} - {MY_NAME}&apos;s Blog
         </title>
       </NextHead>
 

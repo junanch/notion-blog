@@ -48,7 +48,7 @@ const HomePages = ({ posts, githubInfo }: IProps): React.ReactNode => {
   return (
     <>
       <NextHead>
-        <title>{MY_NAME} Blog</title>
+        <title>{MY_NAME}&apos;s Blog</title>
       </NextHead>
       <div className="relative flex flex-col min-h-screen bg-white">
         <Navbar githubInfo={githubInfo} />

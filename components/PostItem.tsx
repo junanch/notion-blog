@@ -7,11 +7,12 @@ import { IPost } from '../pages/[year]/[month]/[slug]'
 
 export const PostCard = styled.li`
   ${tw`cursor-pointer px-4 transform transition duration-200
-  sm:hover:(bg-gray-50 rounded -translate-y-1 shadow-lg)`}
+  sm:hover:(bg-gray-50 rounded shadow-lg -translate-y-0.5)`}
 `
 
 const LinkWrap = styled.a`
-  ${tw`w-full py-4 block border-b border-gray-100 sm:hover:(border-transparent)`}
+  ${tw`w-full py-4 block border-b sm:hover:(border-transparent)`}
+  border-color: #E2E8F0;
 `
 
 const TitleWrap = styled.h1`
@@ -19,11 +20,13 @@ const TitleWrap = styled.h1`
 `
 
 const DateWrap = styled.time`
-  ${tw`text-base text-gray-400 flex items-center flex-wrap space-x-1 mb-1`}
+  ${tw`text-base flex items-center flex-wrap space-x-1 mb-1`}
+  color: #718096;
 `
 
 const Description = styled.div`
-  ${tw`text-base text-gray-400`}
+  ${tw`text-base`}
+  color: #718096;
 `
 
 const TagWrap = styled.section`
@@ -31,7 +34,9 @@ const TagWrap = styled.section`
 `
 
 const Tag = styled.label`
-  ${tw`rounded px-2 py-1 text-gray-400 bg-gray-100 text-sm flex items-center space-x-1 mt-2 mr-2`}
+  ${tw`rounded px-2 py-1 text-sm flex items-center space-x-1 mt-2 mr-2`}
+  color: #718096;
+  background-color: #edf2f7;
 `
 
 const PostItem: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {

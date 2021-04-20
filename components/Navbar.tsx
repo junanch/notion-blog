@@ -31,19 +31,24 @@ const Nav = styled.nav`
 `
 
 const Container = styled.div`
-  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto flex items-center justify-between py-4 px-8`}
+  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto flex items-center justify-between py-4 pl-12 pr-8`}
 `
 
 const Link = styled.a`
-  ${tw`flex items-center mr-3 hover:text-gray-700 md:mr-5 font-medium`}
+  ${tw`flex items-center hover:text-gray-700 font-medium`}
+  &:hover {
+    color: #0e7490;
+    box-shadow: inset 0 -0.125em 0 0 #fff,
+      inset 0 -0.375em 0 0 rgba(165, 243, 252, 0.4);
+  }
 `
 
 const Image = styled.img`
   ${tw`inline-block shadow-lg rounded-full w-10 h-10 mr-3`}
 `
 
-const UserName = styled.div`
-  ${tw`font-normal text-gray-600 text-xl flex items-center h-10`}
+const MenuWrap = styled.ul`
+  ${tw`flex text-gray-600 space-x-5 sm:space-x-10`}
 `
 
 const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
@@ -52,11 +57,10 @@ const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
       <Container>
         <NextLink href="/">
           <Link href="/">
-            <Image src={githubInfo.avatar} alt="avatar" />
-            <UserName>Home</UserName>
+            <Image src={githubInfo?.avatar} alt="avatar" />
           </Link>
         </NextLink>
-        <ul tw="flex mt-1 text-gray-600">
+        <MenuWrap>
           {menu.map((item, index) => (
             <li key={index}>
               <NextLink href={item.href}>
@@ -64,7 +68,7 @@ const Navbar: React.FC<IProps> = ({ githubInfo }: IProps) => {
               </NextLink>
             </li>
           ))}
-        </ul>
+        </MenuWrap>
       </Container>
     </Nav>
   )
