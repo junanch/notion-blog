@@ -19,7 +19,7 @@ const LinkWrap = styled.a`
 `
 
 const TitleWrap = styled.h1`
-  ${tw`font-normal text-2xl mb-3 text-gray-600`}
+  ${tw`font-normal text-2xl mb-3 text-gray-700`}
 `
 
 const DateWrap = styled.time`

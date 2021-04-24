@@ -1,6 +1,6 @@
-# notion-blog
+# Notion Blog
 
-Built with Next.js, TailwindCSS.
+built with next.js, tailwindcss, react-notion, react-notion-x.
 
 ## Related Links
 

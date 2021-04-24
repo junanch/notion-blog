@@ -35,7 +35,7 @@ const Container = styled.div`
 `
 
 const Link = styled.a`
-  ${tw`flex items-center hover:text-gray-700 font-medium`}
+  ${tw`flex items-center font-medium`}
   &:hover {
     color: #0e7490;
     box-shadow: inset 0 -0.125em 0 0 #fff,

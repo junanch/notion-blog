@@ -4,6 +4,7 @@ import tw, { styled } from 'twin.macro'
 
 const GridLinesWrap = styled.section`
   ${tw`relative flex`}
+  min-height: calc(24px * 12);
 `
 
 const GridLine = styled(Grid)`
@@ -11,7 +12,8 @@ const GridLine = styled(Grid)`
 `
 
 const GridContainer = styled.div`
-  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-5 h-full mt-24 mb-12`}
+  ${tw`container 2xl:max-w-5xl xl:max-w-5xl lg:max-w-4xl mx-auto px-5 h-full self-end`}
+  margin-bottom: calc(24px * 2);
 `
 
 const GridLines: React.FC = ({ children }: { children?: React.ReactNode }) => {

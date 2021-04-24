@@ -8,7 +8,7 @@ const PostTitleWrapper = styled.header`
 `
 
 const Title = styled.h1`
-  ${tw`text-4xl font-medium mb-4 break-words text-gray-800`}
+  ${tw`text-4xl font-medium mb-4 break-words text-gray-700`}
 `
 
 const PostTitle: React.FC<{ post: IPost }> = ({ post }: { post: IPost }) => {

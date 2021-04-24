@@ -14,10 +14,7 @@ const PaginationWrapper = styled.section`
 `
 
 const Link = styled.a`
-  ${tw`flex items-center transition-colors duration-200 text-gray-500`}
-  &:hover {
-    color: #0e7490;
-  }
+  ${tw`flex items-center transition-colors duration-200 text-gray-500 hover:text-gray-600`}
 `
 
 const Pagination: React.FC<{ pagination: IPagination }> = ({

@@ -16,6 +16,10 @@ body {
   @apply block;
 }
 
+.notion-text {
+  @apply text-gray-600;
+}
+
 .notion-h {
   @apply block;
 }
@@ -28,16 +32,44 @@ body {
   @apply border-t border-solid bg-gray-200 my-8;
 }
 
-.notion-list-disc > .notion-list-numbered,
-.notion-list-numbered > .notion-list-disc {
+.notion-list {
+  @apply pl-0 list-none;
+}
+
+.notion-list > .notion-list {
+  @apply pl-6;
+}
+
+.notion-list-disc > .notion-list-disc > .notion-list-numbered,
+.notion-list-numbered > .notion-list-numbered > .notion-list-disc {
   @apply pl-0;
+}
+
+.notion-list > li {
+  @apply relative pl-6;
+}
+
+.notion-list-disc > li:before {
+  content: "";
+  @apply absolute	left-1 w-1.5 h-1.5 rounded-full bg-gray-300;
+  top: calc(.875em - .1875em);
+}
+
+.notion-list-numbered > li:before {
+  content: counter(list-item) ".";
+  @apply absolute left-0 text-gray-500 font-normal;
 }
 
 .notion-link {
   @apply no-underline border-0 font-medium;
   color: #0e7490;
-  box-shadow: inset 0 -0.125em 0 0 #fff,
+  box-shadow: inset 0 -0.125em 0 0 transparent,
     inset 0 -0.375em 0 0 rgba(165, 243, 252, 0.4);
+}
+
+.notion-inline-code .notion-link {
+  @apply text-current underline;
+  box-shadow: unset;
 }
 
 .notion-inline-code {
