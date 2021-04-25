@@ -17,7 +17,7 @@ body {
 }
 
 .notion-text {
-  @apply text-gray-600;
+  @apply text-gray-600 py-0 my-2;
 }
 
 .notion-h {
@@ -33,7 +33,7 @@ body {
 }
 
 .notion-list {
-  @apply pl-0 list-none;
+  @apply p-0 list-none;
 }
 
 .notion-list > .notion-list {
@@ -46,7 +46,7 @@ body {
 }
 
 .notion-list > li {
-  @apply relative pl-6;
+  @apply relative pl-6 py-0 my-2;
 }
 
 .notion-list-disc > li:before {
