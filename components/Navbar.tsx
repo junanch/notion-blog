@@ -27,7 +27,7 @@ export const getGithubInfo = async (): Promise<IGithubInfo> => {
 
 // style
 const Nav = styled.nav`
-  ${tw`sticky top-0 bg-white z-10 shadow`}
+  ${tw`bg-white z-10 shadow`}
 `
 
 const Container = styled.div`
