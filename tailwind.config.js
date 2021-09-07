@@ -6,12 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          'Inter',
-          'Roboto',
-          'Noto Sans SC',
-          ...defaultTheme.fontFamily.sans
-        ]
+        sans: ['Roboto', 'Noto Sans SC', ...defaultTheme.fontFamily.sans]
       }
     }
   },

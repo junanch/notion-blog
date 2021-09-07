@@ -8,7 +8,6 @@ import NotionCode from '../../../components/NotionCode'
 import Navbar, { IGithubInfo, getGithubInfo } from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import PostTitle from '../../../components/PostTitle'
-import Disqus from '../../../components/Disqus'
 import GridLines from '../../../components/GridLines'
 import { getAllPosts } from '../../index'
 import { formatSlug } from '../../../utils/slugFormat'
@@ -111,11 +110,9 @@ const BlogPost = ({
             components={{ code: NotionCode, equation: Equation }}
           />
 
-          <hr tw="border-gray-100 my-8" />
+          {/* <hr tw="border-gray-100 my-8" /> */}
 
           <Pagination pagination={pagination} />
-
-          <Disqus post={post} />
         </section>
 
         <Footer />
