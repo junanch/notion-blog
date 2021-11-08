@@ -14,8 +14,8 @@ interface IProps {
 // config
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME
 const menu = [
-  { title: 'Blogs', href: '/' },
-  { title: 'Notes', href: '/notes' },
+  { title: 'Blog', href: '/' },
+  { title: 'Note', href: '/note' },
   { title: 'About', href: '/about' }
 ]
 
